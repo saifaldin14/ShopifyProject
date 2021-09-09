@@ -3,6 +3,7 @@ import "./App.css";
 
 import { getNasaAction } from "./actions/getNasaData";
 import { connect } from "react-redux";
+import Feed from "./components/Feed";
 
 const App = (props) => {
   const onGetNasaData = () => {
@@ -11,20 +12,11 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {props.getNasaData.isLoading ? (
+        <p>Loading</p>
+      ) : (
+        <Feed nasaData={props.nasaData.data} />
+      )}
     </div>
   );
 };

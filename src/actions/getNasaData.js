@@ -31,7 +31,7 @@ export const getNasaAction = () => (dispatch) => {
         url: res.data.url,
       };
 
-      alert(nasaObject.title);
+      //alert(nasaObject.title);
       dispatch(getNasaSuccess(nasaObject));
     })
     .catch((e) => {

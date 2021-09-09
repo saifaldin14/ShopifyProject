@@ -6,14 +6,17 @@ import {
   CardMedia,
   CardContent,
   CardActions,
+  Collapse,
   Avatar,
   IconButton,
   Typography,
 } from "@material-ui/core";
-import { FavoriteIcon, ExpandMoreIcon, MoreVertIcon } from "@material-ui/icons";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useStyles } from "./styles";
 
-const CardComponent = (title, date, description, imageUrl) => {
+const CardComponent = ({ title, date, description, imageUrl }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
 
@@ -37,12 +40,13 @@ const CardComponent = (title, date, description, imageUrl) => {
         title={title}
         subheader={date}
       />
-      <CardMedia className={classes.media} image={imageUrl} title={title} />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {description}
-        </Typography>
-      </CardContent>
+      <CardMedia
+        className={classes.media}
+        component="div"
+        alt=""
+        image={imageUrl}
+        title={title}
+      />
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
