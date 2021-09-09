@@ -7,7 +7,6 @@ import {
   CardContent,
   CardActions,
   Collapse,
-  Avatar,
   IconButton,
   Typography,
 } from "@material-ui/core";
@@ -19,9 +18,17 @@ import { useStyles } from "./styles";
 const CardComponent = ({ title, date, description, imageUrl }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
-
+  const [likeClass, setLikeClass] = useState("unlike");
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const changeButtonColor = () => {
+    if (likeClass === "unlike") {
+      setLikeClass("like");
+    } else {
+      setLikeClass("unlike");
+    }
   };
 
   return (
@@ -44,7 +51,10 @@ const CardComponent = ({ title, date, description, imageUrl }) => {
       />
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <FavoriteIcon
+            className={classes[likeClass]}
+            onClick={() => changeButtonColor()}
+          />
         </IconButton>
         <IconButton
           className={clsx(classes.expand, {
