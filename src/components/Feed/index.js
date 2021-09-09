@@ -13,15 +13,6 @@ const Feed = (props) => {
     setData(props.nasaData);
   }, [props.nasaData]);
 
-  // useEffect(() => {
-  //   if (data !== []) {
-  //     setCardData(data.data.near_earth_objects["2015-09-07"]);
-  //   }
-  // }, [data]);
-
-  // console.log(data.data);
-
-  //console.log(data.data.near_earth_objects[0]);
   return (
     <div>
       {data.data == null
