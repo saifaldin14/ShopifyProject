@@ -4,6 +4,7 @@ import { red, grey } from "@material-ui/core/colors";
 export const useStyles = makeStyles((theme) => ({
   root: {
     width: "70%",
+    marginBottom: "2rem",
   },
   media: {
     height: 0,
