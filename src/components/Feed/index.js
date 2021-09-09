@@ -3,6 +3,7 @@ import CardComponent from "../CardComponent";
 import { useStyles } from "./styles";
 
 const Feed = (props) => {
+  const classes = useStyles();
   const [data, setData] = useState({ data: [{}, {}] });
 
   useEffect(() => {
@@ -10,7 +11,7 @@ const Feed = (props) => {
   }, [props.nasaData]);
 
   return (
-    <div>
+    <div className={classes.container}>
       {data.data == null
         ? console.log("Please wait")
         : data.data.map((nasaObject, i) => {
