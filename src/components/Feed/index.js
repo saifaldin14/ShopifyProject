@@ -3,11 +3,7 @@ import CardComponent from "../CardComponent";
 import { useStyles } from "./styles";
 
 const Feed = (props) => {
-  const classes = useStyles();
   const [data, setData] = useState({ data: [{}, {}] });
-  const [cardData, setCardData] = useState([
-    { title: "", date: "", url: "", description: "" },
-  ]);
 
   useEffect(() => {
     setData(props.nasaData);
