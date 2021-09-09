@@ -12,10 +12,10 @@ const App = (props) => {
 
   return (
     <div className="App">
-      {props.getNasaData.isLoading ? (
-        <p>Loading</p>
-      ) : (
+      {!props.getNasaData.isLoading ? (
         <Feed nasaData={props.nasaData.data} />
+      ) : (
+        <p>Loading</p>
       )}
     </div>
   );

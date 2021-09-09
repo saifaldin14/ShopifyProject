@@ -24,15 +24,16 @@ export const getNasaAction = () => (dispatch) => {
   nasa
     .getNasa()
     .then((res) => {
-      const nasaObject = {
-        description: res.data.explanation,
-        title: res.data.title,
-        date: res.data.date,
-        url: res.data.url,
-      };
+      // const nasaObject = {
+      //   description: res.data.explanation,
+      //   title: res.data.title,
+      //   date: res.data.date,
+      //   url: res.data.url,
+      // };
+      //alert(res);
 
       //alert(nasaObject.title);
-      dispatch(getNasaSuccess(nasaObject));
+      dispatch(getNasaSuccess(res));
     })
     .catch((e) => {
       dispatch(getNasaFailure());
