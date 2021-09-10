@@ -1,4 +1,5 @@
 import { Dialog, DialogTitle } from "@material-ui/core";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const ShareableLink = (props) => {
@@ -8,13 +9,13 @@ const ShareableLink = (props) => {
     onClose(selectedValue);
   };
 
+  useEffect(() => {
+    window.localStorage.setItem(title, imageUrl);
+  }, [title, imageUrl]);
+
   return (
-    <Dialog
-      onClose={handleClose}
-      aria-labelledby="simple-dialog-title"
-      open={open}
-    >
-      <DialogTitle id="simple-dialog-title">
+    <Dialog onClose={handleClose} aria-labelledby="shareable-link" open={open}>
+      <DialogTitle id="image-title">
         Access Shareable Link for the Image
       </DialogTitle>
       <Link
@@ -25,6 +26,8 @@ const ShareableLink = (props) => {
             title: `${title}`,
           },
         }}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {`${window.location.href}${title}`}
       </Link>

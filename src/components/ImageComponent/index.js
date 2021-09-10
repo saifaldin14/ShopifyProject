@@ -5,7 +5,8 @@ const ImageComponent = (props) => {
   const location = useLocation();
   console.log(location.state);
   // const { imageUrl } = location.state;
-  const { imageUrl } = location.state;
+
+  const imageUrl = window.localStorage.getItem(props.match.params.title);
   return (
     <div>
       <img src={imageUrl} alt="" />
