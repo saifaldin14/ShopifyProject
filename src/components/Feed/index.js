@@ -18,6 +18,7 @@ const Feed = (props) => {
             return (
               <CardComponent
                 key={i}
+                id={i}
                 title={nasaObject.title}
                 date={nasaObject.date}
                 description={nasaObject.explanation}

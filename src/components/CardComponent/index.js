@@ -12,13 +12,13 @@ import {
 } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useStyles } from "./styles";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-// import Lottie from "react-lottie";
-// import { default as likeAnimation } from "../../assets/lottie/like.json";
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 
-const CardComponent = ({ title, date, description, imageUrl }) => {
+const CardComponent = ({ id, title, date, description, imageUrl }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
   const [likeClass, setLikeClass] = useLocalStorage(title, "unlike");
@@ -56,6 +56,19 @@ const CardComponent = ({ title, date, description, imageUrl }) => {
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites" onClick={changeButtonColor}>
           <FavoriteIcon className={classes[likeClass]} />
+        </IconButton>
+        <IconButton aria-label="share">
+          <Link
+            to={{
+              pathname: `/${id}`,
+              state: {
+                imageUrl: `${imageUrl}`,
+                title: `${title}`,
+              },
+            }}
+          >
+            <ShareIcon />
+          </Link>
         </IconButton>
         <IconButton
           className={clsx(classes.expand, {

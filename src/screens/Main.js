@@ -1,19 +1,15 @@
-import Feed from "../components/Feed";
+import { withRouter, useLocation } from "react-router-dom";
 
-const Main = (props) => {
-  const onGetNasaData = () => {
-    props.getNasaData();
-  };
-
+const ImageComponent = (props) => {
+  console.log(props.match.params);
+  const location = useLocation();
+  console.log(location.state);
+  // const { imageUrl } = location.state;
+  const { imageUrl, title } = location.state;
   return (
-    <div className="App">
-      {!props.getNasaData.isLoading ? (
-        <Feed nasaData={props.nasaData.data} />
-      ) : (
-        <p>Loading</p>
-      )}
+    <div>
+      <img src={imageUrl} alt="" />
     </div>
   );
 };
-
-export default Main;
+export default withRouter(ImageComponent);
