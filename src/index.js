@@ -4,8 +4,8 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import store from "./store";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import ImageComponent from "./screens/Main";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ImageComponent from "./components/ImageComponent";
 
 ReactDOM.render(
   <React.StrictMode>

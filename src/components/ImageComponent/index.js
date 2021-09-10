@@ -5,7 +5,7 @@ const ImageComponent = (props) => {
   const location = useLocation();
   console.log(location.state);
   // const { imageUrl } = location.state;
-  const { imageUrl, title } = location.state;
+  const { imageUrl } = location.state;
   return (
     <div>
       <img src={imageUrl} alt="" />

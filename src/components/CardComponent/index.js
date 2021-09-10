@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import {
   Card,
@@ -15,15 +15,25 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useStyles } from "./styles";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 import ShareableLink from "../ShareableLink";
 
 const CardComponent = ({ id, title, date, description, imageUrl }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
-  const [likeClass, setLikeClass] = useLocalStorage(title, "unlike");
-  const [open, setOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState();
+  const [likeClass, setLikeClass] = useState(() => {
+    const stickyValue = window.localStorage.getItem(id);
+    if (stickyValue !== null) {
+      return stickyValue;
+    } else {
+      return "unlike";
+    }
+  });
+  const [open, setOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState();
+
+  useEffect(() => {
+    localStorage.setItem(id, likeClass);
+  }, [likeClass, id]);
 
   const handleClickOpen = () => {
     setOpen(true);
