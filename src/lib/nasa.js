@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const START_DATE = "2021-09-01";
-const END_DATE = "2021-09-10";
 
 const BASE_URL = `https://api.nasa.gov/planetary/apod`;
 const API_KEY = "api_key=612p2r2bYK4qR9NiJBvqQQ4EbGyWekmaqfkG4dEh";
