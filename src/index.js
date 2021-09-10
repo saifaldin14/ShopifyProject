@@ -12,7 +12,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route path="/:id">
+          <Route path="/:title">
             <ImageComponent />
           </Route>
           <Route path="/">

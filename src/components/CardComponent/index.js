@@ -16,12 +16,23 @@ import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useStyles } from "./styles";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import ShareableLink from "../ShareableLink";
 
 const CardComponent = ({ id, title, date, description, imageUrl }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
   const [likeClass, setLikeClass] = useLocalStorage(title, "unlike");
+  const [open, setOpen] = React.useState(false);
+  const [selectedValue, setSelectedValue] = React.useState();
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (value) => {
+    setOpen(false);
+    setSelectedValue(value);
+  };
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -58,17 +69,7 @@ const CardComponent = ({ id, title, date, description, imageUrl }) => {
           <FavoriteIcon className={classes[likeClass]} />
         </IconButton>
         <IconButton aria-label="share">
-          <Link
-            to={{
-              pathname: `/${id}`,
-              state: {
-                imageUrl: `${imageUrl}`,
-                title: `${title}`,
-              },
-            }}
-          >
-            <ShareIcon />
-          </Link>
+          <ShareIcon onClick={() => handleClickOpen()} />
         </IconButton>
         <IconButton
           className={clsx(classes.expand, {
@@ -88,6 +89,13 @@ const CardComponent = ({ id, title, date, description, imageUrl }) => {
           </Typography>
         </CardContent>
       </Collapse>
+      <ShareableLink
+        selectedValue={selectedValue}
+        open={open}
+        onClose={handleClose}
+        title={title}
+        imageUrl={imageUrl}
+      />
     </Card>
   );
 };
