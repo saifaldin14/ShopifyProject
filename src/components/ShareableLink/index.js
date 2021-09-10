@@ -8,7 +8,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const ShareableLink = (props) => {
@@ -18,6 +18,12 @@ const ShareableLink = (props) => {
 
   const handleClose = () => {
     onClose(selectedValue);
+  };
+
+  const copyText = () => {
+    navigator.clipboard.writeText(`${window.location.href}${title}`);
+    alert("Successfully copied image URL to clipboard");
+    handleClose();
   };
 
   useEffect(() => {
@@ -36,9 +42,12 @@ const ShareableLink = (props) => {
       </DialogTitle>
       <DialogContent>
         <DialogContentText>
-          {`${window.location.href}${title}`}
-          Let Google help apps determine location. This means sending anonymous
-          location data to Google, even when no apps are running.
+          We have successfully created a shareable link for this image. You can
+          use this link to view the image and share it to an external social
+          media platform.
+        </DialogContentText>
+        <DialogContentText>
+          Image URL: {`${window.location.href}${title}`}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
@@ -58,8 +67,11 @@ const ShareableLink = (props) => {
             Visit Link
           </Link>
         </Button>
+        <Button onClick={copyText} color="primary" autoFocus>
+          Copy Link
+        </Button>
         <Button onClick={handleClose} color="primary" autoFocus>
-          Agree
+          Close
         </Button>
       </DialogActions>
     </Dialog>

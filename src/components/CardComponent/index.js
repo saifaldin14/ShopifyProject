@@ -64,7 +64,8 @@ const CardComponent = ({ id, title, date, description, imageUrl }) => {
             <MoreVertIcon />
           </IconButton>
         }
-        title={title}
+        // className={classes.header}
+        title={<h5 className={classes.header}>{title}</h5>}
         subheader={date}
       />
       <CardMedia

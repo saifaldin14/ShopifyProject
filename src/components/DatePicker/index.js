@@ -59,6 +59,8 @@ const DatePicker = (props) => {
             "aria-label": "change date",
           }}
         />
+      </Grid>
+      <Grid container justifyContent="space-around">
         <Button onClick={handleUpdateData}>Submit</Button>
       </Grid>
     </MuiPickersUtilsProvider>
