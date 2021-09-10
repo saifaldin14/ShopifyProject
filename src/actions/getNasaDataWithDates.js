@@ -19,10 +19,10 @@ const getNasaFailure = () => {
   return { type: NASA_GET_FAILURE };
 };
 
-export const getNasaAction = () => (dispatch) => {
+export const getNasaDateAction = (startDate, endDate) => (dispatch) => {
   dispatch(getNasaRequest());
   nasa
-    .getNasa()
+    .getNasaWithDate(startDate, endDate)
     .then((res) => {
       dispatch(getNasaSuccess(res));
     })
