@@ -8,10 +8,18 @@ import Lottie from "react-lottie";
 import { default as animationData } from "./assets/lotties/loading.json";
 
 const App = (props) => {
+  /**
+   * Function to call the prop that will dispatch an action to fetch data from the API
+   * to retrieve data between startDate and endDate
+   * @param {string} startDate
+   * @param {string} endDate
+   */
   const onGetNasaData = (startDate, endDate) => {
     props.getNasaDataWithDate(startDate, endDate);
   };
 
+  //The default configurations for the loading animation
+  //Loop until props.isLoading is false
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -39,7 +47,6 @@ const App = (props) => {
 function mapStateToProps(state) {
   const nasaData = state.getNasaData;
   const isLoading = state.getNasaData.isLoading;
-  console.log(state.getNasaData.isLoading);
 
   return {
     nasaData,

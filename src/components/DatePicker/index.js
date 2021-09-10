@@ -1,5 +1,5 @@
 import "date-fns";
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
 import {
@@ -9,23 +9,30 @@ import {
 import { Button } from "@material-ui/core";
 
 const DatePicker = (props) => {
-  // The first commit of Material-UI
-  const [selectedStartDate, setSelectedStartDate] = React.useState(
-    new Date("2021-09-10T21:11:54")
-  );
+  // Define the initial start and end dates to be the current date
+  const [selectedStartDate, setSelectedStartDate] = useState(new Date());
+  const [selectedEndDate, setSelectedEndDate] = useState(new Date());
 
-  const [selectedEndDate, setSelectedEndDate] = React.useState(
-    new Date("2021-09-10T21:11:54")
-  );
-
+  /**
+   * Function to update the date of the startDate
+   * @param {Date} date
+   */
   const handleStartDateChange = (date) => {
     setSelectedStartDate(date.toISOString().split("T")[0]);
   };
 
+  /**
+   * Function to update the date of the endDate
+   * @param {Date} date
+   */
   const handleEndDateChange = (date) => {
     setSelectedEndDate(date.toISOString().split("T")[0]);
   };
 
+  /**
+   * Function to call the function that will dispatch
+   * the action to fetch data between the startDate and endDate
+   */
   const handleUpdateData = () => {
     props.onGetNasaData(selectedStartDate, selectedEndDate);
   };

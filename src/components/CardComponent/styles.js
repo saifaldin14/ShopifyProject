@@ -1,5 +1,4 @@
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import { red, grey } from "@material-ui/core/colors";
 
 export const useStyles = makeStyles((theme) => ({
@@ -37,11 +36,3 @@ export const useStyles = makeStyles((theme) => ({
     color: grey[500],
   },
 }));
-
-export const CustomColor = withStyles({
-  root: {
-    background: "-webkit-linear-gradient(#ff9966, #ff33cc)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-  },
-})(Typography);

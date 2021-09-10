@@ -4,11 +4,13 @@ import {
   NASA_GET_FAILURE,
 } from "../actions/getNasaData";
 
+//Define the initial state
 const INITIAL_STATE = {
   isLoading: false,
   data: [],
 };
 
+//Reducer to update the store
 const getNasaData = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case NASA_GET_REQUEST:

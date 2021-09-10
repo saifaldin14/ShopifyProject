@@ -1,11 +1,7 @@
-import { withRouter, useLocation } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const ImageComponent = (props) => {
-  console.log(props.match.params);
-  const location = useLocation();
-  console.log(location.state);
-  // const { imageUrl } = location.state;
-
+  //Get the image URL saved in local storage
   const imageUrl = window.localStorage.getItem(props.match.params.title);
   return (
     <div>

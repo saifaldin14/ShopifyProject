@@ -19,35 +19,57 @@ import ShareableLink from "../ShareableLink";
 
 const CardComponent = ({ id, title, date, description, imageUrl }) => {
   const classes = useStyles();
+  //Whether or not the accordion is open
   const [expanded, setExpanded] = useState(false);
+
+  //Gets the current class the like button has (liked or unliked)
   const [likeClass, setLikeClass] = useState(() => {
-    const stickyValue = window.localStorage.getItem(id);
-    if (stickyValue !== null) {
-      return stickyValue;
+    //Get the state from local storage
+    const localValue = window.localStorage.getItem(id);
+    if (localValue !== null) {
+      //There's already a state saved, return that one instead of the default
+      return localValue;
     } else {
+      //No saved state, default is unlike
       return "unlike";
     }
   });
+
+  //Whether or not the shareable link dialog is open
   const [open, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState();
 
   useEffect(() => {
+    //Update local storage with the state of the like button
     localStorage.setItem(id, likeClass);
   }, [likeClass, id]);
 
+  /**
+   * Function to open the shareable link dialog
+   */
   const handleClickOpen = () => {
     setOpen(true);
   };
 
+  /**
+   * Function to close the shareable link dialog
+   * @param {*} value
+   */
   const handleClose = (value) => {
     setOpen(false);
     setSelectedValue(value);
   };
 
+  /**
+   * Function to toggle the accordion to display or hide the explanation
+   */
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  /**
+   * Function to change the state of the like state
+   */
   const changeButtonColor = () => {
     if (likeClass === "unlike") {
       setLikeClass("like");
