@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CardComponent from "../CardComponent";
 import { useStyles } from "./styles";
 
-const Feed = (props) => {
+const FeedComponent = (props) => {
   const classes = useStyles();
   const [data, setData] = useState({ data: [{}, {}] });
 
@@ -30,4 +30,4 @@ const Feed = (props) => {
   );
 };
 
-export default Feed;
+export default FeedComponent;

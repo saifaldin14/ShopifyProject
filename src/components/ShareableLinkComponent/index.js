@@ -11,7 +11,7 @@ import {
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const ShareableLink = (props) => {
+const ShareableLinkComponent = (props) => {
   //Get props to execute actions and display data
   const { onClose, selectedValue, open, title, imageUrl } = props;
 
@@ -90,4 +90,4 @@ const ShareableLink = (props) => {
   );
 };
 
-export default ShareableLink;
+export default ShareableLinkComponent;

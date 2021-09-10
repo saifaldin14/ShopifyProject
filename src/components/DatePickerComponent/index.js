@@ -8,7 +8,7 @@ import {
 } from "@material-ui/pickers";
 import { Button } from "@material-ui/core";
 
-const DatePicker = (props) => {
+const DatePickerComponent = (props) => {
   // Define the initial start and end dates to be the current date
   const [selectedStartDate, setSelectedStartDate] = useState(new Date());
   const [selectedEndDate, setSelectedEndDate] = useState(new Date());
@@ -74,4 +74,4 @@ const DatePicker = (props) => {
   );
 };
 
-export default DatePicker;
+export default DatePickerComponent;

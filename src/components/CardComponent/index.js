@@ -15,7 +15,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useStyles } from "./styles";
-import ShareableLink from "../ShareableLink";
+import ShareableLinkComponent from "../ShareableLinkComponent";
 
 const CardComponent = ({ id, title, date, description, imageUrl }) => {
   const classes = useStyles();
@@ -122,7 +122,7 @@ const CardComponent = ({ id, title, date, description, imageUrl }) => {
           </Typography>
         </CardContent>
       </Collapse>
-      <ShareableLink
+      <ShareableLinkComponent
         selectedValue={selectedValue}
         open={open}
         onClose={handleClose}

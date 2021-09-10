@@ -2,8 +2,8 @@ import "./App.css";
 import { getNasaAction } from "./actions/getNasaData";
 import { getNasaDateAction } from "./actions/getNasaDataWithDates";
 import { connect } from "react-redux";
-import Feed from "./components/Feed";
-import DatePicker from "./components/DatePicker";
+import FeedComponent from "./components/FeedComponent";
+import DatePickerComponent from "./components/DatePickerComponent";
 import Lottie from "react-lottie";
 import { default as animationData } from "./assets/lotties/loading.json";
 
@@ -34,8 +34,8 @@ const App = (props) => {
       <h1>Space-tagram!</h1>
       {!props.isLoading ? (
         <>
-          <DatePicker onGetNasaData={onGetNasaData} />
-          <Feed nasaData={props.nasaData.data} />
+          <DatePickerComponent onGetNasaData={onGetNasaData} />
+          <FeedComponent nasaData={props.nasaData.data} />
         </>
       ) : (
         <Lottie options={defaultOptions} height={400} width={400} />
