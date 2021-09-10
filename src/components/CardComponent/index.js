@@ -14,11 +14,12 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useStyles } from "./styles";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 const CardComponent = ({ title, date, description, imageUrl }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
-  const [likeClass, setLikeClass] = useState("unlike");
+  const [likeClass, setLikeClass] = useLocalStorage(title, "unlike");
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
