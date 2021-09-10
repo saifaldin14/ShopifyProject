@@ -1,6 +1,4 @@
-import logo from "./logo.svg";
 import "./App.css";
-
 import { getNasaAction } from "./actions/getNasaData";
 import { connect } from "react-redux";
 import Feed from "./components/Feed";

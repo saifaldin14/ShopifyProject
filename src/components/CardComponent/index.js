@@ -15,11 +15,14 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useStyles } from "./styles";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+// import Lottie from "react-lottie";
+// import { default as likeAnimation } from "../../assets/lottie/like.json";
 
 const CardComponent = ({ title, date, description, imageUrl }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
   const [likeClass, setLikeClass] = useLocalStorage(title, "unlike");
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -51,11 +54,8 @@ const CardComponent = ({ title, date, description, imageUrl }) => {
         title={title}
       />
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon
-            className={classes[likeClass]}
-            onClick={() => changeButtonColor()}
-          />
+        <IconButton aria-label="add to favorites" onClick={changeButtonColor}>
+          <FavoriteIcon className={classes[likeClass]} />
         </IconButton>
         <IconButton
           className={clsx(classes.expand, {
