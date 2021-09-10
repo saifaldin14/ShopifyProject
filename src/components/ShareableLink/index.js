@@ -8,18 +8,29 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const ShareableLink = (props) => {
+  //Get props to execute actions and display data
   const { onClose, selectedValue, open, title, imageUrl } = props;
+
+  //Retrieve the current theme used in the app
   const theme = useTheme();
+
+  //Set a breakpoint to make the dialog box take up the whole screen on smaller devices
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
+  /**
+   * Function to close the dialog
+   */
   const handleClose = () => {
     onClose(selectedValue);
   };
 
+  /**
+   * Function to copy text to clipboard
+   */
   const copyText = () => {
     navigator.clipboard.writeText(`${window.location.href}${title}`);
     alert("Successfully copied image URL to clipboard");
@@ -27,6 +38,7 @@ const ShareableLink = (props) => {
   };
 
   useEffect(() => {
+    //Retrieve the imageUrl to display from local storage
     window.localStorage.setItem(title, imageUrl);
   }, [title, imageUrl]);
 
