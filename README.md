@@ -50,3 +50,10 @@ Additional features included in the project are:
 7. Includes error handling for selecting incorrect or invalid dates
 8. Creates a custom linear gradient colour for the titles
 9. Automatically clears local storage when user alters specified dates (so that new posts aren't liked by default)
+
+## Future Improvements
+
+1. Permanently save the users' likes for each unique image
+2. Permanently store the shareable links for each image
+3. Allow direct sharing to other platforms from within the app
+4. Allow users to create galleries of their favourite images
