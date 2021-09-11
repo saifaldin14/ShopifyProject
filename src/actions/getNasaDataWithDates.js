@@ -30,6 +30,9 @@ export const getNasaDateAction = (startDate, endDate) => (dispatch) => {
     .catch((e) => {
       //Failure and execute failure action
       console.log(e);
+      alert(
+        "The dates you inputted are invalid, please enter a correct date combination"
+      );
       dispatch(getNasaFailure());
     });
 };

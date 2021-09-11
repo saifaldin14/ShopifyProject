@@ -81,12 +81,6 @@ const CardComponent = ({ id, title, date, description, imageUrl }) => {
   return (
     <Card className={classes.root}>
       <CardHeader
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        // className={classes.header}
         title={<h5 className={classes.header}>{title}</h5>}
         subheader={date}
       />
