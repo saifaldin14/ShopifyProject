@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Project URL
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://shopifyproject.herokuapp.com
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+Space-tagram is a web app that accesses NASA's APOD API to fetch astronomy images and data for a specified date period
 
-### `yarn start`
+## Technologies Used with the Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. React to create the UI
+2. Redux for state management (I designed this project with scalability in mind, therefore I wanted to utilize Redux to allow the project to be easily extended in the future)
+3. Redux Saga to automatically fetch data when the web page is loaded
+4. Axios to fetch data from the API
+5. React Router for dynamic routing that is used to generate shareable links for each image
+6. Lottie to display a pleasant and beautiful loading animation
+7. JSDoc for documentation of each function used within the project
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features of the Project
 
-### `yarn test`
+1. Fetch NASA data using axios
+2. Display the resulting data in a dynamic feed that includes the image, title, explanation and date of the picture
+3. Allows the user the ability to like and unlike their favourite post
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Extra Features Included
 
-### `yarn build`
+The following extra features were specified in the challenge specifications
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Extra features that were included are:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Saving likes to local storage so that the user can view their likes if they refresh or close the session
+2. Animated like button (shows a ripple effect when pressed)
+3. Displaying a loading state while waiting for the API to return the data (utilized a Lottie animation)
+4. The web app automatically generates a shareable link for each image that can be viewed on a separate page using dynamic routing from React Router
+5. Includes a date-picker that allows the user to fetch photos between customized start and end dates
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Additional Features Included
 
-### `yarn eject`
+The following features were not explicitly specified in the challenge specifications but increase the user experience while using the app.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Additional features included in the project are:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Completely responsive web design
+2. Documentation for the project using JSDoc
+3. When no date is specified the app will automatically select the first day of the current month and fetch data between the first day of the month and the current date.
+   (E.g. On September 11th, 2021 the app will display data within September 1st, 2021 - September 11th, 2021)
+4. Hides the picture description in an accordion view
+5. Allows the user to visit the shareable link for the image on a separate tab
+6. Allows the user to copy the shareable link to their clipboard
+7. Includes error handling for selecting incorrect or invalid dates
+8. Creates a custom linear gradient colour for the titles
+9. Automatically clears local storage when user alters specified dates (so that new posts aren't liked by default)
