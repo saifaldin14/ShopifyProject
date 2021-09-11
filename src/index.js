@@ -12,10 +12,10 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route path="/shopifyproject:title">
+          <Route path="/:title">
             <ImageComponent />
           </Route>
-          <Route path="/shopifyproject">
+          <Route path="/">
             <App />
           </Route>
         </Switch>
