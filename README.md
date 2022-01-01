@@ -57,3 +57,11 @@ Additional features included in the project are:
 2. Permanently store the shareable links for each image
 3. Allow direct sharing to other platforms from within the app
 4. Allow users to create galleries of their favourite images
+
+## Screenshots
+<img src="./images/1.png" width="100%">
+<img src="./images/2.png" width="100%">
+<img src="./images/3.png" width="100%">
+<img src="./images/4.png" width="100%">
+<img src="./images/5.png" width="100%">
+
